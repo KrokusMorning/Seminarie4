@@ -1,0 +1,7 @@
+2017-05-13T08:54:12.351
+se.kth.ict.nextgenpos.model.ItemNotFoundException: The item with ID number10could not be found.
+	at se.kth.ict.nextgenpos.model.ProductCatalog.findSpecification(ProductCatalog.java:32)
+	at se.kth.ict.nextgenpos.controller.Controller.enterItem(Controller.java:44)
+	at se.kth.ict.nextgenpos.view.View.enterItem(View.java:46)
+	at se.kth.ict.nextgenpos.view.View.test(View.java:35)
+	at se.kth.ict.nextgenpos.startup.Main.main(Main.java:16)
