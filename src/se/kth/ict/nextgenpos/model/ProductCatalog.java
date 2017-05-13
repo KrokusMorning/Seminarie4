@@ -2,7 +2,6 @@ package se.kth.ict.nextgenpos.model;
 
 import java.util.Map;
 import java.util.HashMap;
-
 /**
  * This class is responsible for all access to the product database.
  */ 
@@ -28,7 +27,11 @@ public class ProductCatalog {
      * @param    itemId The item to look for
      * @return          The specification for the found item or null if no item was found.
      */
-    public ProductSpecification findSpecification(int itemId) {
-	    return products.get(itemId);
+    public ProductSpecification findSpecification(int itemId) throws ItemNotFoundException {
+	    if(itemId > 3 || itemId < 1){
+	        throw new ItemNotFoundException(itemId);
+        }
+        return products.get(itemId);
+
     }
 }
