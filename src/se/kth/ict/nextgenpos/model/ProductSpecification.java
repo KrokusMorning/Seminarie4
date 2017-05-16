@@ -1,9 +1,14 @@
 package se.kth.ict.nextgenpos.model;
-
 /**
  * An instance of this class hold all information about a certain product.
  */
 public class ProductSpecification {
+
+
+    public int getProductId() {
+        return productId;
+    }
+
     private int productId;
     private String description;
     private String name;
@@ -28,9 +33,11 @@ public class ProductSpecification {
     //More get methods.
 
     public String toString() {
-	return "Product id: " + productId + ", name: " + name + 
+	return "Product id: " + productId + ", name: " + name +
 	    ", price:" + price + "\ndescription: " + description;
-	    
+
     }
+
+
 }
     

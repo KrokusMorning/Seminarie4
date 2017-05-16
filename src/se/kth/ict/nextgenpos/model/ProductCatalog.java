@@ -1,37 +1,57 @@
 package se.kth.ict.nextgenpos.model;
 
+import se.kth.ict.nextgenpos.view.ItemDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 /**
  * This class is responsible for all access to the product database.
  */ 
-public class ProductCatalog { 
+public class ProductCatalog {
     private Map<Integer, ProductSpecification> products = 
 	new HashMap<Integer, ProductSpecification>();
+    private RegisteredItemsObserver observer;
+    int nrOfItemsRegistred = -1;
 
     /**
      * Fills the catalog with some dummy items.
      */
     public ProductCatalog() {
-	products.put(1, new ProductSpecification(1, "low fat milk", 
-	   "a very long description, a very long description, a very long description", 10));
-	products.put(2, new ProductSpecification(2, "butter", 
-	   "a very long description, a very long description, a very long description", 10));
-	products.put(3, new ProductSpecification(3, "bread", 
-	   "a very long description, a very long description, a very long description", 10));
     }
+
+    public void addItem(ItemDTO item){
+        ProductSpecification product = new ProductSpecification(item.getProductId(),
+                item.getName(), item.getDescription(), item.getPrice());
+        nrOfItemsRegistred++;
+        products.put(nrOfItemsRegistred, product);
+        notifyObeservers(product);
+    }
+    private void notifyObeservers(ProductSpecification product){
+        observer.newItem(product);
+
+    }
+    public void addItemRegistryObserver(RegisteredItemsObserver obs ){
+        observer = obs;}
 
     /**
      * Search for an item in the product catalog.
      *
      * @param    itemId The item to look for
      * @return          The specification for the found item or null if no item was found.
+     * @throws   ItemNotFoundException
      */
     public ProductSpecification findSpecification(int itemId) throws ItemNotFoundException {
-	    if(itemId > 3 || itemId < 1){
-	        throw new ItemNotFoundException(itemId);
-        }
+        boolean exists = false;
+        int i;
+        for(i = 0; i < nrOfItemsRegistred; i++){
+                if (products.get( i ).getProductId() == itemId)
+                    exists = true;}
+        if (exists == false)
+            throw new ItemNotFoundException(itemId);
         return products.get(itemId);
 
     }
+
 }

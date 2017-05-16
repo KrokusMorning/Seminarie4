@@ -1,7 +1,7 @@
 package se.kth.ict.nextgenpos.model;
 
 /**
- * Created by ocean on 2017-05-12.
+ * Thrown when item ID is not found.
  */
 public class ItemNotFoundException extends Exception {
     int notFoundItemId;
@@ -17,6 +17,10 @@ public class ItemNotFoundException extends Exception {
         this.notFoundItemId = ItemId;
     }
 
+    /**
+     *
+     * @return notFoundItemId The item ID that could not be found.
+     */
     public int getNotFoundItemId() {
         return notFoundItemId;
     }

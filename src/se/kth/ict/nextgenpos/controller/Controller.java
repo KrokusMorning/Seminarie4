@@ -1,6 +1,10 @@
 package se.kth.ict.nextgenpos.controller;
 
 import se.kth.ict.nextgenpos.model.*;
+import se.kth.ict.nextgenpos.view.ItemDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The controller of the application. This is the sole controller, all calls to the
@@ -9,6 +13,8 @@ import se.kth.ict.nextgenpos.model.*;
 public class Controller {
     private Sale sale;
     private ProductCatalog catalog;
+    //private List<RegisteredItemsObserver> observers = new ArrayList<>();
+    private RegisteredItemsObserver observer;
 
     /**
      * Instantiates a new <code>Controller</code>.
@@ -16,6 +22,18 @@ public class Controller {
     public Controller() {
 	catalog = new ProductCatalog();
     }
+
+    public void registerItem(ItemDTO item){
+        catalog.addItemRegistryObserver(observer);
+        catalog.addItem(item);
+        //product.addItemRegistryObservers(observers);
+        System.out.println(observer);
+    }
+
+    public void addItemRegistryObserver(RegisteredItemsObserver obs) {
+        observer = obs;
+    }
+
     
     /**
      * Initiates a new sale. Must be called before <code>enterItem()</code>. 

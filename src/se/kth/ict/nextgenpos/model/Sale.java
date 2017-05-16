@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * Represents a single sale to one customer.
  */
 public class Sale {
+    
     private List<SalesLineItem> lineItems;
     private int currentTotal;
     private int payedAmount;
@@ -29,6 +30,7 @@ public class Sale {
 	SalesLineItem lineItem = new SalesLineItem(spec, quantity);
 	lineItems.add(lineItem);
 	addToTotal(lineItem);
+
     }
 
     private void addToTotal(SalesLineItem lineItem) {
