@@ -2,7 +2,7 @@ package se.kth.ict.nextgenpos.view;
 
 import se.kth.ict.nextgenpos.controller.Controller;
 import se.kth.ict.nextgenpos.model.ItemNotFoundException;
-import se.kth.ict.nextgenpos.model.logFileHandler;
+import se.kth.ict.nextgenpos.model.LogFileHandler;
 
 import java.io.IOException;
 
@@ -47,7 +47,7 @@ public class View {
 		enterItem(5);
 	}
 	catch (Exception ItemNotFoundException) {
-		logFileHandler logger = new logFileHandler();
+		LogFileHandler logger = new LogFileHandler();
 		logger.logException(ItemNotFoundException);
 	}
     }

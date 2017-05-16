@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 /**
  * Class used to write exception stacktrace to a txt document called "Supermarket-log.txt".
  */
-public class logFileHandler {
+public class LogFileHandler {
     private static final String FILENAME = "Supermarket-log.txt";
 
     private PrintWriter logFile;
@@ -17,7 +17,7 @@ public class logFileHandler {
      * Creates a new instance and a new txt file.
      * @throws IOException
      */
-    public logFileHandler() throws IOException {
+    public LogFileHandler() throws IOException {
         logFile = new PrintWriter(new FileWriter(FILENAME), true);
     }
 
