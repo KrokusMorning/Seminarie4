@@ -14,7 +14,7 @@ public class ProductCatalog {
     private RegisteredItemsObserver observer;
 
     /**
-     * Fills the catalog with some dummy items.
+     * Constructor
      */
     public ProductCatalog() {
     }
@@ -40,7 +40,6 @@ public class ProductCatalog {
      */
     private void notifyObeservers(ProductSpecification product){
         observer.newItem(product);
-
     }
 
     /**
@@ -49,7 +48,8 @@ public class ProductCatalog {
      * @param obs Reference to the observing class.
      */
     public void addItemRegistryObserver(RegisteredItemsObserver obs ){
-        observer = obs;}
+        observer = obs;
+    }
 
     /**
      * Search for an item in the product catalog.
@@ -66,7 +66,6 @@ public class ProductCatalog {
         if (exists == false)
             throw new ItemNotFoundException(itemId);
         return products.get(itemId);
-
     }
 
 }
