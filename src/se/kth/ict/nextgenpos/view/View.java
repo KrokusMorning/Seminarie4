@@ -29,26 +29,22 @@ public class View {
      */
     public void test() throws IOException {
 	cont.makeNewSale();
-	ItemDTO item = new ItemDTO(4,"flower", "looks good, smells good.", 37);
+	ItemDTO item = new ItemDTO(15,"flower",
+			    "looks good, smells good.", 37);
 	cont.registerItem(item);
-		ItemDTO milk = new ItemDTO(1, "almond milk",
-				"guild free milk", 10);
-		cont.registerItem(milk);
-		ItemDTO butter = new ItemDTO(2, "diary free butter",
+	ItemDTO milk = new ItemDTO(1, "almond milk",
+				"guilt free milk", 10);
+	cont.registerItem(milk);
+	ItemDTO butter = new ItemDTO(2, "diary free butter",
 				"healthy butter", 10);
-		cont.registerItem(butter);
-		ItemDTO bread = new ItemDTO(3, "whole grain bread",
-				"health bread", 10);
-		cont.registerItem(bread);
-	try {
-		enterItem(2);
+	cont.registerItem(butter);
+	ItemDTO bread = new ItemDTO(3, "whole grain bread",
+				"healthy bread", 10);
+	cont.registerItem(bread);
 
-		System.out.println(">>>>> NOTE!!\n" +
-				"A null pointer exception will follow since there is no handling" +
-				" of non-existing item ids. When you have implemented exception" +
-				" handling, there should be some informative printout instead of the" +
-				" exception stack trace.");
-		enterItem(2);
+	try {
+		enterItem(15);
+		enterItem(5);
 	}
 	catch (Exception ItemNotFoundException) {
 		logFileHandler logger = new logFileHandler();
