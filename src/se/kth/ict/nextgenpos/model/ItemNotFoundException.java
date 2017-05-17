@@ -12,7 +12,7 @@ public class ItemNotFoundException extends Exception {
      * @param ItemId ID of the item that could not be found.
      */
     public ItemNotFoundException(int ItemId) {
-        super("The item with ID number"+ ItemId +"could not be found.");
+        super("Invalid search, "+ ItemId +" not in system.");
         System.out.println("The item with ID number "+ ItemId +" could not be found.");
         this.notFoundItemId = ItemId;
     }
